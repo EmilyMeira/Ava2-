@@ -90,16 +90,22 @@ let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
 
-function mostraPergunta(){
-    if(atual >= perguntas.lenght){
-        mostraResultado();
-        return;
-    }
-    perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
-    mostraAlternativas();
+function mostraPergunta() {
+  if (atual >= perguntas.length) {
+      mostraResultado();
+      return;
+  }
+  perguntaAtual = perguntas[atual];
+  caixaPerguntas.textContent = perguntaAtual.enunciado;
+   caixaAlternativas.textContent = "";
+  mostraAlternativas();
 }
+
+function mostraPergunta() {
+      perguntaAtual1 = perguntas [atual];
+      caixaPerguntas.textContent = perguntaAtual.enunciado;
+      mostraAlternativa();
+    }
 
 function mostraAlternativas() {
     for(const alternativa of perguntaAtual.alternativas) {
@@ -109,11 +115,11 @@ function mostraAlternativas() {
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
-function respostaSelecionada(opcaoSelecionada){
-    const afirmacoes = opcaoSelecionada.afirmacoes;
-    historiaFinal += afirmacoes + "";
-    atual++;
-    mostraPergunta();
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacoes = opcaoSelecionada.afirmacao;
+  historia += afirmacoes + "";
+  atual++;
+  mostraPergunta();
 }
 
 function mostraResultado(){
